@@ -55,5 +55,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     TargetWifiOverlay
 
+ifdef USE_DEV_CERTIFICATE
+    PRODUCT_DEFAULT_DEV_CERTIFICATE := $(USE_DEV_CERTIFICATE)
+endif
+
 # Inherit from the proprietary version
 $(call inherit-product, vendor/xiaomi/pyxis/pyxis-vendor.mk)
