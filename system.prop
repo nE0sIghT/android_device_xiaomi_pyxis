@@ -66,3 +66,6 @@ persist.radio.sar_sar_sensor=true
 
 # WiFi Display
 persist.sys.wfd.virtual=0
+
+# OTA
+lineage.updater.uri=https://ota.coldzone.ru/api/v1/{device}/{type}/{incr}
