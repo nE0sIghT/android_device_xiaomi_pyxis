@@ -12,9 +12,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 # Get non-open-source specific aspects
 $(call inherit-product-if-exists, vendor/xiaomi/pyxis/pyxis-vendor.mk)
 
-ifneq ($(WITH_GAPPS),)
-$(call inherit-product, vendor/gapps/arm64/arm64-vendor.mk)
-endif
+# Gapps version
+GAPPS_VARIANT := micro
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2340
@@ -136,4 +135,9 @@ PRODUCT_COPY_FILES += \
 
 ifdef USE_DEV_CERTIFICATE
     PRODUCT_DEFAULT_DEV_CERTIFICATE := $(USE_DEV_CERTIFICATE)
+endif
+
+ifneq ($(WITH_GAPPS),)
+$(call inherit-product, vendor/opengapps/build/opengapps-packages.mk)
+GAPPS_PRODUCT_PACKAGES += CalculatorGoogle
 endif
